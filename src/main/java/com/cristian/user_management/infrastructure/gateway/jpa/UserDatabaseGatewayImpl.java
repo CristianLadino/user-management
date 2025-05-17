@@ -34,6 +34,11 @@ public class UserDatabaseGatewayImpl implements UserDatabaseGateway {
     }
 
     @Override
+    public boolean existByUsernameAndIdNot(String username, Long id) {
+        return userRepository.existByUsernameAndIdNot(username, id);
+    }
+
+    @Override
     public User save(User user) {
         var userSave =  userRepository
                 .save(userMap.toEntity(user));

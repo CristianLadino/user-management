@@ -11,6 +11,8 @@ public interface UserDatabaseGateway {
 
     Optional<User> findById(Long id);
 
+    boolean existByUsernameAndIdNot(String username, Long id);
+
     User save(User user);
 
     void deleteById (Long Id);
