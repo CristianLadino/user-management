@@ -21,7 +21,7 @@ public class UserDatabaseGatewayImpl implements UserDatabaseGateway {
 
 
     @Override
-    public List<UserResponse> findAll() {
+    public List<User> findAll() {
         return userRepository.findAll()
                 .stream()
                 .map(userMap::toModel)
@@ -29,20 +29,21 @@ public class UserDatabaseGatewayImpl implements UserDatabaseGateway {
     }
 
     @Override
-    public Optional<UserResponse> findById(Long id) {
+    public Optional<User> findById(Long id) {
         return userRepository.findById(id)
                 .map(userMap::toModel);
     }
 
     @Override
     public boolean existByUsernameAndIdNot(String username, Long id) {
-        return userRepository.existByUsernameAndIdNot(username, id);
+        return userRepository.existsByUsernameAndIdNot(username, id);
     }
 
     @Override
-    public UserResponse save(User user) {
-        var userSave =  userRepository
-                .save(userMap.toEntity(user));
+    public User save(User user) {
+        var entity = userMap.toEntity(user);
+        var userSave = userRepository
+                .save(entity);
         return userMap.toModel(userSave);
     }
 

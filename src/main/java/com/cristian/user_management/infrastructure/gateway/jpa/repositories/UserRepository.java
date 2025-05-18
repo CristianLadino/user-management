@@ -4,5 +4,5 @@ import com.cristian.user_management.infrastructure.gateway.jpa.entities.UserEnti
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
-    boolean existByUsernameAndIdNot(String username, Long id);
+    boolean existsByUsernameAndIdNot(String username,Long id);
 }
