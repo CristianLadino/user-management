@@ -2,6 +2,7 @@ package com.cristian.user_management.infrastructure.gateway.jpa;
 
 import com.cristian.user_management.domain.gateway.UserDatabaseGateway;
 import com.cristian.user_management.domain.models.User;
+import com.cristian.user_management.domain.usecases.response.UserResponse;
 import com.cristian.user_management.infrastructure.gateway.jpa.mapper.UserMap;
 import com.cristian.user_management.infrastructure.gateway.jpa.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,7 @@ public class UserDatabaseGatewayImpl implements UserDatabaseGateway {
 
 
     @Override
-    public List<User> findAll() {
+    public List<UserResponse> findAll() {
         return userRepository.findAll()
                 .stream()
                 .map(userMap::toModel)
@@ -28,7 +29,7 @@ public class UserDatabaseGatewayImpl implements UserDatabaseGateway {
     }
 
     @Override
-    public Optional<User> findById(Long id) {
+    public Optional<UserResponse> findById(Long id) {
         return userRepository.findById(id)
                 .map(userMap::toModel);
     }
@@ -39,7 +40,7 @@ public class UserDatabaseGatewayImpl implements UserDatabaseGateway {
     }
 
     @Override
-    public User save(User user) {
+    public UserResponse save(User user) {
         var userSave =  userRepository
                 .save(userMap.toEntity(user));
         return userMap.toModel(userSave);
