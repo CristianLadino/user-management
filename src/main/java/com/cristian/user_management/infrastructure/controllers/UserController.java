@@ -95,7 +95,7 @@ public class UserController {
                     schema = @Schema(implementation = UserResponse.class)
             )
     )
-    @ApiResponse(responseCode = "400", description = "Invalid input data", content = @Content)
+    @ApiResponse(responseCode = "400", description = "Bad Request", content = @Content)
     @ApiResponse(responseCode = "409", description = "Username already exists", content = @Content)
     @io.swagger.v3.oas.annotations.parameters.RequestBody(
             description = "User data to create",
@@ -124,7 +124,7 @@ public class UserController {
                             schema = @Schema(implementation = UserResponse.class)
                     )
     )
-    @ApiResponse(responseCode = "400", description = "Invalid input data", content = @Content)
+    @ApiResponse(responseCode = "400", description = "Bad Request", content = @Content)
     @ApiResponse(responseCode = "404", description = "User not found", content = @Content)
 
     @Parameter(

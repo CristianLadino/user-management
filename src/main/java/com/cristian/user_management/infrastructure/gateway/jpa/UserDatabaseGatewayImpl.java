@@ -2,7 +2,6 @@ package com.cristian.user_management.infrastructure.gateway.jpa;
 
 import com.cristian.user_management.domain.gateway.UserDatabaseGateway;
 import com.cristian.user_management.domain.models.User;
-import com.cristian.user_management.domain.usecases.response.UserResponse;
 import com.cristian.user_management.infrastructure.gateway.jpa.mapper.UserMap;
 import com.cristian.user_management.infrastructure.gateway.jpa.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;

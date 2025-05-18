@@ -1,18 +1,15 @@
 package com.cristian.user_management.domain.usecases.user;
 
-import com.cristian.user_management.domain.exception.DuplicateUserNameException;
 import com.cristian.user_management.domain.exception.UserNotFoundException;
 import com.cristian.user_management.domain.gateway.UserDatabaseGateway;
 import com.cristian.user_management.domain.mapper.UserResponseMap;
 import com.cristian.user_management.domain.models.User;
-import com.cristian.user_management.domain.usecases.request.CreateUserRequest;
 import com.cristian.user_management.domain.usecases.request.UpdateUserRequest;
 import com.cristian.user_management.domain.usecases.response.UserResponse;
 import com.cristian.user_management.domain.utils.PasswordEncoderUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor

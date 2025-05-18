@@ -1,7 +1,6 @@
 package com.cristian.user_management.domain.gateway;
 
 import com.cristian.user_management.domain.models.User;
-import com.cristian.user_management.domain.usecases.response.UserResponse;
 
 import java.util.List;
 import java.util.Optional;

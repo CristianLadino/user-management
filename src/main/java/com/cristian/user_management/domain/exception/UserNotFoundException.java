@@ -4,6 +4,6 @@ import org.springframework.http.HttpStatus;
 
 public class UserNotFoundException extends DomainException {
     public UserNotFoundException(Long id) {
-        super("Use not found with id: %s".formatted(id), HttpStatus.NOT_FOUND);
+        super("User not found with id: %s".formatted(id), HttpStatus.NOT_FOUND);
     }
 }
