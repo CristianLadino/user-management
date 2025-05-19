@@ -1,7 +1,6 @@
 package com.cristian.user_management.domain.mapper;
 
 import com.cristian.user_management.domain.models.User;
-import com.cristian.user_management.domain.usecases.response.UserResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,7 +28,7 @@ class UserResponseMapTest {
                 .password("secret")
                 .build();
 
-        UserResponse response = userResponseMap.toUserResponse(user);
+        var response = userResponseMap.toUserResponse(user);
 
         assertNotNull(response);
         assertEquals(1L, response.getId());
@@ -42,11 +41,23 @@ class UserResponseMapTest {
         var user2 = User.builder().id(2L).username("julio").password("456").build();
         var userList = List.of(user1, user2);
 
-        List<UserResponse> responseList = userResponseMap.toUserResponseList(userList);
+        var responseList = userResponseMap.toUserResponseList(userList);
 
         assertNotNull(responseList);
         assertEquals(2, responseList.size());
         assertEquals("cristian", responseList.get(0).getUsername());
         assertEquals("julio", responseList.get(1).getUsername());
+    }
+
+    @Test
+    void toUserResponse_whenInputIsNull_shouldReturnNull() {
+        var response = userResponseMap.toUserResponse(null);
+        assertNull(response);
+    }
+
+    @Test
+    void toUserResponseList_whenInputIsNull_shouldReturnNull() {
+        var responseList = userResponseMap.toUserResponseList(null);
+        assertNull(responseList);
     }
 }
