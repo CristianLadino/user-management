@@ -1,0 +1,131 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > ControllerHandlerException</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.cristian.user_management.infrastructure.controllers.exception</a>
+</div>
+
+<h1>Coverage Summary for Class: ControllerHandlerException (com.cristian.user_management.infrastructure.controllers.exception)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ControllerHandlerException</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/9)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.cristian.user_management.infrastructure.controllers.exception;
+&nbsp;
+&nbsp;
+&nbsp;import com.cristian.user_management.domain.exception.DomainException;
+&nbsp;import org.slf4j.Logger;
+&nbsp;import org.slf4j.LoggerFactory;
+&nbsp;import org.springframework.http.ResponseEntity;
+&nbsp;import org.springframework.web.bind.annotation.ControllerAdvice;
+&nbsp;import org.springframework.web.bind.annotation.ExceptionHandler;
+&nbsp;
+&nbsp;@ControllerAdvice
+<b class="fc">&nbsp;public class ControllerHandlerException {</b>
+<b class="fc">&nbsp;  private static final Logger LOGGER = LoggerFactory.getLogger(ControllerHandlerException.class);</b>
+&nbsp;
+&nbsp;  @ExceptionHandler(DomainException.class)
+&nbsp;  public ResponseEntity&lt;ApiError&gt; handleDomainException(DomainException e){
+<b class="fc">&nbsp;      var apiError = ApiError.builder()</b>
+<b class="fc">&nbsp;              .error(e.getMessage())</b>
+<b class="fc">&nbsp;              .message(&quot;Business error&quot;)</b>
+<b class="fc">&nbsp;              .status(e.getStatus().value())</b>
+<b class="fc">&nbsp;              .build();</b>
+&nbsp;
+<b class="fc">&nbsp;      LOGGER.error(&quot;[method: handleDomainException] [error: {}] [status: {}]&quot;, e.getMessage(), e.getStatus().value());</b>
+&nbsp;
+<b class="fc">&nbsp;      return ResponseEntity.status(apiError.getStatus()).body(apiError);</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-05-18 19:49</div>
+</div>
+</body>
+</html>
